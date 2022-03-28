@@ -1,0 +1,25 @@
+{
+    "name": "mica",
+    "displayName": "mica",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "mica",
+            "aliases": ["Mica", "mica"],
+            "extensions": [".mi"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "mica",
+            "scopeName": "source.mica",
+            "path": "./syntaxes/mica.tmLanguage.json"
+        }]
+    }
+}

@@ -1,0 +1,83 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Mica",
+	"patterns": [
+		{ "include": "#comments" },
+		{ "include": "#keywords" },
+		{ "include": "#variables" },
+		{ "include": "#numbers" },
+		{ "include": "#strings" }
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.mica",
+					"match": "#.+"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "constant.language.mica",
+					"match": "\\b(nil|true|false)\\b"
+				},
+				{
+					"name": "keyword.control.mica",
+					"match": "\\b(do|if|elif|else|while|end|break|return|and|or)\\b"
+				},
+				{
+					"name": "keyword.other.impl.mica",
+					"match": "\\bimpl\\b"
+				},
+				{
+					"name": "storage.type.mica",
+					"match": "\\b(func|struct)\\b"
+				},
+				{
+					"name": "storage.modifier.mica",
+					"match": "\\b(static|constructor)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "[\\+\\-\\*\\/\\=\\!\\<\\>\\.]"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"match": "\\b([\\p{Alpha}_][\\p{Alpha}\\p{Nd}_]*)\\b\\s*\\(",
+					"captures": {
+						"1": { "name": "entity.name.function.mica" }
+					}
+				},
+				{
+					"name": "variable.other.mica",
+					"match": "\\b([\\p{Alpha}_][\\p{Alpha}\\p{Nd}_]*)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.mica",
+					"match": "[0-9]+(\\.[0-9]+)?"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.mica",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.mica",
+					"match": "\\\\[\"\\\\]"
+				}
+			]
+		}
+	},
+	"scopeName": "source.mica"
+}

@@ -13,7 +13,7 @@
 			"patterns": [
 				{
 					"name": "comment.line.mica",
-					"match": "#.+"
+					"match": "#.*"
 				}
 			]
 		},
@@ -40,17 +40,47 @@
 					"match": "\\b(static|constructor)\\b"
 				},
 				{
+					"name": "variable.language.mica",
+					"match": "\\bself\\b"
+				},
+				{
+					"match": "(\\.)\\s*([\\p{Alpha}_][\\p{Alpha}\\p{Nd}_]*)",
+					"captures": {
+						"1": { "name": "keyword.operator" },
+						"2": { "name": "entity.name.function.mica" }
+					}
+				},
+				{
 					"name": "keyword.operator",
 					"match": "[\\+\\-\\*\\/\\=\\!\\<\\>\\.]"
+				},
+				{
+					"name": "punctuation.paren.open.mica",
+					"match": "\\("
+				},
+				{
+					"name": "punctuation.paren.close.mica",
+					"match": "\\)"
 				}
 			]
 		},
 		"variables": {
 			"patterns": [
 				{
+					"name": "entity.name.type.mica",
+					"match": "\\b(\\p{Uppercase}[\\p{Alpha}\\p{Nd}_]*)\\b"
+				},
+				{
 					"match": "\\b([\\p{Alpha}_][\\p{Alpha}\\p{Nd}_]*)\\b\\s*\\(",
 					"captures": {
 						"1": { "name": "entity.name.function.mica" }
+					}
+				},
+				{
+					"match": "(@)\\s*([\\p{Alpha}_][\\p{Alpha}\\p{Nd}_]*)\\b",
+					"captures": {
+						"1": { "name": "punctuation.definition.variable.mica" },
+						"2": { "name": "variable.other.mica" }
 					}
 				},
 				{

@@ -1,8 +1,9 @@
 {
     "name": "mica",
-    "displayName": "mica",
-    "description": "",
+    "displayName": "Mica",
+    "description": "Syntax highlighting for the Mica programming language",
     "version": "0.0.1",
+    "repository": "https://github.com/mica-lang/mica-vscode",
     "engines": {
         "vscode": "^1.65.0"
     },

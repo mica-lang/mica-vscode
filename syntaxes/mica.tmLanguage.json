@@ -93,18 +93,74 @@
 			"patterns": [
 				{
 					"name": "constant.numeric.mica",
-					"match": "[0-9]+(\\.[0-9]+)?"
+					"match": "[0-9_]+(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?"
+				},
+				{
+					"name": "constant.numeric.radix.mica",
+					"match": "(\\\\)[0-9_]+(:)[0-9a-zA-Z_]+",
+					"captures": {
+						"1": { "name": "keyword.other.backslash.mica" },
+						"2": { "name": "punctuation.separator.radix.mica" }
+					}
+				},
+				{
+					"name": "constant.numeric.binary.mica",
+					"match": "(\\\\[bB])[01_]+",
+					"captures": {
+						"1": { "name": "keyword.other.unit.binary.mica" }
+					}
+				},
+				{
+					"name": "constant.numeric.octal.mica",
+					"match": "(\\\\o)[0-7_]+",
+					"captures": {
+						"1": { "name": "keyword.other.unit.octal.mica" }
+					}
+				},
+				{
+					"name": "constant.numeric.octal.mica",
+					"match": "(\\\\[xX])[0-9a-fA-F_]+",
+					"captures": {
+						"1": { "name": "keyword.other.unit.hexadecimal.mica" }
+					}
 				}
 			]
 		},
 		"strings": {
-			"name": "string.quoted.double.mica",
-			"begin": "\"",
-			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.mica",
-					"match": "\\\\[\"\\\\]"
+					"name": "string.quoted.double.mica",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.mica",
+							"match": "\\\\([\"'\\\\nrt]|u\\{([0-9a-fA-F_]+)\\})",
+							"captures": {
+								"2": { "name": "constant.numeric.codepoint.mica" }
+							}
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.raw.mica",
+					"begin": "(\\\\r)\"",
+					"beginCaptures": {
+						"1": { "name": "keyword.other.string.raw.mica" }
+					},
+					"end": "\""
+				},
+				{
+					"name": "string.other.multiline.mica",
+					"begin": "\\\\\\\\",
+					"end": "\n"
+				},
+				{
+					"name": "string.quoted.single.char.mica",
+					"match": "(\\\\u)'.'",
+					"captures": {
+						"1": { "name": "keyword.other.character.unicode.mica" }
+					}
 				}
 			]
 		}

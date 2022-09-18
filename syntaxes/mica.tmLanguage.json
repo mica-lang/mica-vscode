@@ -29,11 +29,11 @@
 				},
 				{
 					"name": "keyword.other.impl.mica",
-					"match": "\\bimpl\\b"
+					"match": "\\b(impl|as)\\b"
 				},
 				{
 					"name": "storage.type.mica",
-					"match": "\\b(func|struct)\\b"
+					"match": "\\b(func|struct|trait)\\b"
 				},
 				{
 					"name": "storage.modifier.mica",

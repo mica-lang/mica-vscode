@@ -25,11 +25,19 @@
 				},
 				{
 					"name": "keyword.control.mica",
-					"match": "\\b(do|if|elif|else|while|end|break|return|and|or)\\b"
+					"match": "\\b(do|if|elif|else|while|for|end|break|return|and|or)\\b"
+				},
+				{
+					"name": "keyword.other.let.mica",
+					"match": "\\blet\\b"
 				},
 				{
 					"name": "keyword.other.impl.mica",
 					"match": "\\b(impl|as)\\b"
+				},
+				{
+					"name": "keyword.other.in.mica",
+					"match": "\\bin\\b"
 				},
 				{
 					"name": "storage.type.mica",
